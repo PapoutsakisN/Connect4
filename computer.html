@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lan="en">
+
+<head>
+    <title>Connect4 Game</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Connect4,A2.2,359,Html">
+    <meta name="author" content="csd3035">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" text="text/css" href="css/mycss.css">
+    <script src="js/jsComputer.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+    </script>
+
+
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="column" style="background-color:#3537b4;">
+            <table id="GameTable">
+                <tr>
+                    <td class="col_but"><button id="column0" onclick='play(0)'>Column1</button></td>
+                    <td class="col_but"><button id="column1" onclick='play(1)'>Column2</button></td>
+                    <td class="col_but"><button id="column2" onclick='play(2)'>Column3</button></td>
+                    <td class="col_but"><button id="column3" onclick='play(3)'>Column4</button></td>
+                    <td class="col_but"><button id="column4" onclick='play(4)'>Column5</button></td>
+                    <td class="col_but"><button id="column5" onclick='play(5)'>Column6</button></td>
+                    <td class="col_but"><button id="column6" onclick='play(6)'>Column7</button></td>
+                </tr>
+                <tr>
+                    <td class="spot"><img class="img" id="p0_0" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p0_1" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p0_2" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p0_3" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p0_4" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p0_5" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p0_6" src="resources/background.png"></img></td>
+                </tr>
+                <tr>
+                    <td class="spot"><img class="img" id="p1_0" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p1_1" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p1_2" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p1_3" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p1_4" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p1_5" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p1_6" src="resources/background.png"></img></td>
+                </tr>
+                <tr>
+                    <td class="spot"><img class="img" id="p2_0" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p2_1" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p2_2" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p2_3" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p2_4" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p2_5" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p2_6" src="resources/background.png"></img></td>
+                </tr>
+                <tr>
+                    <td class="spot"><img class="img" id="p3_0" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p3_1" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p3_2" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p3_3" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p3_4" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p3_5" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p3_6" src="resources/background.png"></img></td>
+                </tr>
+                <tr>
+                    <td class="spot"><img class="img" id="p4_0" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p4_1" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p4_2" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p4_3" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p4_4" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p4_5" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p4_6" src="resources/background.png"></img></td>
+                </tr>
+                <tr>
+                    <td class="spot"><img class="img" id="p5_0" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p5_1" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p5_2" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p5_3" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p5_4" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p5_5" src="resources/background.png"></img></td>
+                    <td class="spot"><img class="img" id="p5_6" src="resources/background.png"></img></td>
+                </tr>
+            </table>
+            <br>
+            <button class="NewGame" id="newgame" onclick="newGame()">New Game</button>
+            <br>
+            <div class="infoBox" id="infoBox" style="background-color:#84bbd4;">Yellow wins: 3 | Red wins: 5 | Draws: 4</div>
+            <div class="Chart" id="piechart" style="background-color:#84bbd4;"></div>
+
+
+        </div>
+    <div class="subColumn" id="message" style="background-color:#75cff8;"> Game Information:  <br> </div>
+</div>
+</body>
+
+</html>
